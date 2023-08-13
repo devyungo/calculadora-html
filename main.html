@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            width: 100vw;
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+        }
+
+        .key {
+            -webkit-appearance: none;
+            font-size: 150%;
+            height: 50px;
+            width: 150px;
+        }
+        .key:hover{
+            background-color: rgb(170, 170, 170);
+        }
+        .key:active{
+            background-color: white;
+        }
+
+        .container {
+            width: max-content;
+        }
+
+        /* Adiciona a barra de rolagem horizontal */
+        .display-container {
+            width: 468px; /* Tamanho fixo para o display */
+            overflow-x: auto;
+            outline-style: solid;
+            outline-width: 2px;
+        }
+
+        #display {
+            white-space: nowrap;
+            -webkit-appearance: none;
+            font-size: 150%;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="display-container">
+            <div id="display"></div>
+        </div>
+
+
+        <button id="1" class="key" onclick="adddisplay('1')">1</button>
+        <button id="2" class="key" onclick="adddisplay('2')">2</button>
+        <button id="3" class="key" onclick="adddisplay('3')">3</button><br>
+        <button id="4" class="key" onclick="adddisplay('4')">4</button>
+        <button id="5" class="key" onclick="adddisplay('5')">5</button>
+        <button id="6" class="key" onclick="adddisplay('6')">6</button><br>
+        <button id="7" class="key" onclick="adddisplay('7')">7</button>
+        <button id="8" class="key" onclick="adddisplay('8')">8</button>
+        <button id="9" class="key" onclick="adddisplay('9')">9</button><br>
+        <button id="0" class="key" onclick="adddisplay('0')">0</button>
+        <button id="c" class="key" onclick="dclear()">c</button>
+        <button id="+" class="key" onclick="adddisplay('+')">+</button><br>
+        <button id="-" class="key" onclick="adddisplay('-')">-</button>
+        <button id="x" class="key" onclick="adddisplay('*')">*</button>
+        <button id="/" class="key" onclick="adddisplay('/')">/</button><br>
+        <button id="=" class="key" onclick="result()">=</button><br>
+    </div>
+
+    <script>
+        let displaystr = "";
+        const display = document.getElementById("display");
+
+        display.innerHTML = displaystr;
+
+        function adddisplay(char) {
+            displaystr += char;
+            display.innerHTML = displaystr;
+        }
+
+        function dclear() {
+            displaystr = "";
+            display.innerHTML = displaystr;
+        }
+        function result(){
+            displaystr = "" + eval(displaystr)
+            display.innerHTML = displaystr
+        }
+
+    </script>
+</body>
+
+</html>
